@@ -12,6 +12,7 @@ namespace YoutubeExcel
 	public class ExcelManager
 	{
 		string path = "";
+		int lastLowIdx = 0;
 		const string youtubeAddressBasic = "https://youtu.be/";
 		const string youtubeCaptionBasic = "https://www.youtube.com/timedtext_video?v=";
 
@@ -21,16 +22,17 @@ namespace YoutubeExcel
 
 		YoutubeManager youtubeApi;
 
-		public ExcelManager(string path, int sheet)
+		public ExcelManager(string path, int lastLowIdx, int sheet)
 		{
 			this.path = path;
+			this.lastLowIdx = lastLowIdx;
 
 			wb = excel.Workbooks.Open(this.path);
 			ws = wb.Worksheets[sheet];
 
 			youtubeApi = new YoutubeManager();
 
-			Console.WriteLine("ExcelManager initialize");
+			Console.WriteLine($"ExcelManager initialized. Path({path}), Sheet({sheet})");
 		}
 
 		public void Close()
