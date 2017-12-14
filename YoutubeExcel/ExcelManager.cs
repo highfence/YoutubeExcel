@@ -12,7 +12,7 @@ namespace YoutubeExcel
 	public class ExcelManager
 	{
 		string path = "";
-		int lastLowIdx = 0;
+		int lastRowIdx = 0;
 		const string youtubeAddressBasic = "https://youtu.be/";
 		const string youtubeCaptionBasic = "https://www.youtube.com/timedtext_video?v=";
 
@@ -25,7 +25,7 @@ namespace YoutubeExcel
 		public ExcelManager(string path, int lastLowIdx, int sheet)
 		{
 			this.path = path;
-			this.lastLowIdx = lastLowIdx;
+			this.lastRowIdx = lastLowIdx;
 
 			wb = excel.Workbooks.Open(this.path);
 			ws = wb.Worksheets[sheet];
@@ -42,7 +42,6 @@ namespace YoutubeExcel
 
 		public async Task Process()
 		{
-			var lastRowIdx = 206;
 			Console.WriteLine($"Process started. Last Row idx : {lastRowIdx}");
 
 			for (var curRowIdx = 2; curRowIdx <= lastRowIdx; ++curRowIdx)
