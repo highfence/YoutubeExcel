@@ -12,7 +12,7 @@ namespace YoutubeExcel
 	{
 		static void Main(string[] args)
 		{
-			ExcelManager manager = new ExcelManager(args[0], Convert.ToInt32(args[1]), Convent.ToInt32(args[2]));
+			ExcelManager manager = new ExcelManager(args[0], Convert.ToInt32(args[1]), Convert.ToInt32(args[2]));
 			manager.Process();
 
 			Console.ReadLine();
